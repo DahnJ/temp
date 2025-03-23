@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Všechno nejlepší</title>
+    <title>Všechno nejlepší!</title>
     <style>
         body {
             background-color: #000;
@@ -16,6 +16,7 @@
             min-height: 100vh;
             font-family: 'Comic Sans MS', cursive, sans-serif;
             overflow-x: hidden;
+            position: relative;
         }
         
         .title {
@@ -38,6 +39,24 @@
             margin: 0.5rem;
         }
         
+        .footer {
+            color: white;
+            font-size: 0.8rem;
+            text-align: center;
+            padding: 1rem 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+        
+        .heart-icon {
+            height: 0.8rem;
+            margin: 0 0.3rem;
+        }
+        
         @keyframes pulse {
             0% { transform: scale(1); }
             50% { transform: scale(1.05); }
@@ -57,7 +76,12 @@
     </style>
 </head>
 <body>
-    <div class="title">Všechno nejlepší</div>
+    <audio autoplay loop muted preload="auto" id="background-music">
+        <source src="sans.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    
+    <div class="title">Všechno nejlepší!</div>
     
     <div class="sans-row">
         <img src="sans.gif" alt="Sans" class="sans-gif" style="--i: 0;">
@@ -67,5 +91,28 @@
         <img src="sans.gif" alt="Sans" class="sans-gif" style="--i: 4;">
         <img src="sans.gif" alt="Sans" class="sans-gif" style="--i: 5;">
     </div>
+    
+    <div class="footer">
+        Made with <img src="heart.png" alt="heart" class="heart-icon"> in 🇹🇼
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const music = document.getElementById('background-music');
+            
+            music.muted = true;
+            
+            music.play().then(function() {
+                setTimeout(function() {
+                    music.muted = false;
+                }, 500);
+            }).catch(function(error) {
+                document.addEventListener('click', function() {
+                    music.muted = false;
+                    music.play();
+                }, { once: true });
+            });
+        });
+    </script>
 </body>
 </html>
