@@ -4,8 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Všechno nejlepší!</title>
-    <link rel="preload" href="https://cdn.jsdelivr.net/npm/comic-sans-ms-font@1.0.0/comic-sans-ms.woff2" as="font" type="font/woff2" crossorigin>
     <style>
+        @font-face {
+            font-family: 'Comic Sans MS';
+            src: url('ComicSansMS3.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
         body {
             background-color: #000;
             margin: 0;
@@ -18,15 +24,6 @@
             font-family: 'Comic Sans MS', cursive, sans-serif;
             overflow-x: hidden;
             position: relative;
-        }
-        @font-face {
-            font-family: 'Comic Sans MS';
-            src: url('https://cdn.jsdelivr.net/npm/comic-sans-ms-font@1.0.0/comic-sans-ms.woff2') format('woff2'),
-                url('https://cdn.jsdelivr.net/npm/comic-sans-ms-font@1.0.0/comic-sans-ms.woff') format('woff'),
-                url('https://cdn.jsdelivr.net/npm/comic-sans-ms-font@1.0.0/comic-sans-ms.ttf') format('truetype');
-            font-weight: normal;
-            font-style: normal;
-            font-display: swap;
         }
         
         .title {
